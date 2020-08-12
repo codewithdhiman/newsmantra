@@ -1,5 +1,9 @@
 const API_KEY = 'c683f72d1cc44c728add131be39c6ddd';
-const URL = `http://newsapi.org/v2/everything?q=bitcoin&from=2020-07-09&sortBy=publishedAt&apiKey=${API_KEY}`;
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth() < 10 ? date.getMonth() : '0' + date.getMonth();
+const day = date.getDate();
+const URL = `http://newsapi.org/v2/everything?q=bitcoin&from=${year}-${month}-${date}&sortBy=publishedAt&apiKey=${API_KEY}`;
 
 const fetchedItems = payload => {
     return { type: "FETCHED_POSTS", payload };
