@@ -13,7 +13,9 @@ const loadingItems = () => {
 const fetchPosts = () => {
     return (dispatch) => {
         dispatch(loadingItems())
-        fetch(URL)
+        fetch(URL, {
+            mode: 'no-cors'
+        })
             .then(res => res.json())
             .then(posts => {
                 dispatch(fetchedItems(posts.articles));
